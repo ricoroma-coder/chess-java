@@ -12,7 +12,7 @@ public class Board {
 		}
 		this.row = row;
 		this.column = column;
-		this.pieces = new Piece[row][column];
+		pieces = new Piece[row][column];
 	}
 
 	public int getRow() {
@@ -55,8 +55,13 @@ public class Board {
 	
 	public boolean thereIsAPiece(Position position) {
 		if (!positionExists(position)) {
-			throw new BoardException("There is already a piece");
+			throw new BoardException("Position not on the board");
 		}
 		return piece(position) != null;
 	}
+	
+	public String toString() {
+		return "board row:" + this.getRow()+",board column"+this.getColumn();
+	}
+	
 }
